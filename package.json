@@ -1,0 +1,86 @@
+{
+  "name": "sety-backend-template",
+  "version": "1.0.0",
+  "description": "Sety backend boiler template",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon bin/app.js",
+    "build": "rm -rf dist && webpack --env=development --mode development --watch",
+    "test": "nyc --reporter=text mocha --require @babel/register --recursive --exit",
+    "clean": "rimraf dist",
+    "lint": "eslint --ignore-pattern 'node_modules/**' '**/*.{js,jsx,ts,tsx}' 'test/**/*.{js,jsx,ts,tsx}'",
+    "lint-fix": "npm run lint -- --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run lint-fix",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "Boiler",
+    "template",
+    "node",
+    "template",
+    "template"
+  ],
+  "author": "Akomolafe Tosin",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.0",
+    "awilix": "^4.2.5",
+    "awilix-express": "^3.0.0",
+    "axios": "^0.19.2",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "convict": "^5.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-joi-validation": "^4.0.3",
+    "file-stream-rotator": "^0.5.7",
+    "fs": "0.0.1-security",
+    "helmet": "^3.21.2",
+    "i18n": "^0.8.5",
+    "mongoose": "^5.9.1",
+    "morgan": "^1.9.1",
+    "rollup": "^1.31.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/register": "^7.8.3",
+    "babel-cli": "^7.0.0-0",
+    "babel-loader": "^8.0.6",
+    "babel-minify": "^0.5.1",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.18.3",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.2.0",
+    "mocha": "^6.2.2",
+    "nodemon-webpack-plugin": "^4.3.1",
+    "nyc": "^15.0.0",
+    "prettier": "^2.4.1",
+    "pretty-quick": "^3.1.1",
+    "webpack": "^4.41.6",
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
